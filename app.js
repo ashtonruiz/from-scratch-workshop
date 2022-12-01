@@ -7,7 +7,6 @@ import { deleteCompetitor, getVideoGames } from './fetch-utils.js';
 /* Get DOM Elements */
 const gameListEl = document.querySelector('.video-games-list');
 
-
 /* Events */
 window.addEventListener('load', async () => {
     await fetchAndDisplayVideoGames();
@@ -16,20 +15,16 @@ window.addEventListener('load', async () => {
 /* Display Functions */
 async function fetchAndDisplayVideoGames() {
     gameListEl.textContent = '';
-    console.log(gameListEl.textContent, 'top of function');
     const videoGames = await getVideoGames();
     for (let game of videoGames) {
-
         const gameEl = renderVideoGames(game);
         const competitorsEl = document.createElement('ul');
         for (let competitor of game.competitors) {
-            console.log(competitor);
             const competitorEl = document.createElement('li');
-            competitorEl.textContent = `${competitor.name}: ${competitor.contact_info}`;
+            competitorEl.textContent = `Competitor: ${competitor.name} ${competitor.contact_info}`;
 
             competitorEl.addEventListener('click', async () => {
                 await deleteCompetitor(competitor.id);
-                console.log(gameListEl.textContent, 'bottom of function');
                 gameListEl.textContent = '';
                 fetchAndDisplayVideoGames();
             });
@@ -37,6 +32,5 @@ async function fetchAndDisplayVideoGames() {
         }
         gameEl.append(competitorsEl);
         gameListEl.append(gameEl);
-
     }
 }
