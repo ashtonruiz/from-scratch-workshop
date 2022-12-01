@@ -14,14 +14,9 @@ window.addEventListener('load', async () => {
 
         selectEl.append(gameOption);
     }
-    await createCompetitor(ashtonMember);
 });
 
-const ashtonMember = {
-    name: 'Ashton',
-    contact_info: 'ashtonruiz333@gmail.com',
-    game_id: 5,
-};
+
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -37,4 +32,5 @@ form.addEventListener('submit', async (e) => {
         contact_info: contact,
         game_id: gameId,
     });
+    window.location.replace('/');
 });

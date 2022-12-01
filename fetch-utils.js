@@ -44,5 +44,6 @@ export async function deleteCompetitor(competitorId) {
 }
 
 function checkError(response) {
+    // eslint-disable-next-line no-console
     return response.error ? console.error(response.error) : response.data;
 }
