@@ -130,7 +130,7 @@ a:hover {
     color: #2ecc71;
 }
 
-a:hover+.icon {
+a:hover + .icon {
     border: 3px solid hsl(145, 63%, 49%);
     right: -25%;
 }
@@ -151,6 +151,4 @@ a:hover+.icon {
 
 img {
     height: 200px;
-    display:
-
 }
