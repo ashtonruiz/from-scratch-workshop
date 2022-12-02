@@ -1,26 +1,35 @@
-## The Golden Rule:
+![](wireframe.png)
 
-🦸 🦸‍♂️ `Stop starting and start finishing.` 🏁
+# Plan
 
-If you work on more than one feature at a time, you are guaranteed to multiply your bugs and your anxiety.
+1. Database Setup
 
-## Making a plan
+Add two tables
 
-1. **Make a drawing of your app. Simple "wireframes"**
-1. **Once you have a drawing, name the HTML elements you'll need to realize your vision**
-1. **For each HTML element ask: Why do I need this?**
-1. **Once we know _why_ we need each element, think about how to implement the "Why" as a "How"**
-1. **Find all the 'events' (user clicks, form submit, on load etc) in your app. Ask one by one, "What happens when" for each of these events. Does any state change?**
-1. **Think about how to validate each of your features according to a Definition of Done**
-1. **Consider what features _depend_ on what other features. Use this dependency logic to figure out what order to complete tasks.**
+![](tables.png)
 
-Additional considerations:
+-Add test data to video games / participants
+-Add RLS so that only authenticated users can do anything with the data (select, update, delete,create)
+-video games => enable read for all users
+-competitors =>
+-enable read for all users
+-insert authenticated only
+-delete authenticated only
 
--   Ask: which of your HTML elements need to be hard coded, and which need to be dynamically generated?
--   Consider your data model.
-    -   What kinds of objects (i.e., Dogs, Friends, Todos, etc) will you need?
-    -   What are the key/value pairs?
-    -   What arrays might you need?
-    -   What needs to live in a persistence layer?
--   Is there some state we need to initialize?
--   Ask: should any of this work be abstracted into functions? (i.e., is the work complicated? can it be reused?)
+2. (landing page) Video Games Pages
+
+    -getVideoGames function (fetch all of the video games and their competitors)
+    -render function that displays the games
+    -loop through games and display
+
+3. Create Page (separate page!)
+
+    -HTML -> form elements with inputs for name, contact, placeholder <select> for video games
+    -get our games (getVideoGames) and dynamically add <option> to select
+    -Add createMember function to fetch-utils
+    -add event for the form submit, grabbing the form data and sending it to supabase (calling createCompetitor)
+
+4. Delete Competitor (on games page)
+
+    -add deleteCompetitor(id) in fetch-utils
+    -make member element clickable & delete on click
