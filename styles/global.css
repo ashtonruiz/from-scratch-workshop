@@ -131,7 +131,7 @@ a:hover {
 }
 
 a:hover+.icon {
-    border: 3px solid #2ecc71;
+    border: 3px solid hsl(145, 63%, 49%);
     right: -25%;
 }
 
@@ -141,9 +141,16 @@ a:hover+.icon {
     padding: 5px;
     border-style: solid;
     margin: 5px;
-    width: 400px;
+    width: 600px;
     text-align: center;
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
+    grid-template-rows: auto;
+}
+
+img {
+    height: 200px;
+    display:
+
 }
